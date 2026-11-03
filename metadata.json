@@ -1,0 +1,6 @@
+{
+  "name": "TalentNavy - Empleo, CV & Matching 2026",
+  "description": "Portal de selección y matching de ofertas laborales con auditoría de requisitos del CV, filtros interactivos y componentes refinados en azul marino y dorado.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
