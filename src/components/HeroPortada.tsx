@@ -44,6 +44,9 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
   const avgScore = Math.round(
     matchResults.reduce((acc, curr) => acc + curr.score, 0) / (matchResults.length || 1)
   );
+  const publicLocation = candidate.location.toLowerCase().includes('calle')
+    ? 'Illescas, Toledo'
+    : candidate.location;
 
   // 3D effect subtle controls
   const [is3dEnabled, setIs3dEnabled] = useState(false);
@@ -210,7 +213,7 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
                     {candidate.title}
                   </p>
                   <p className="text-xs text-slate-400 mt-1 truncate">
-                    {candidate.location}
+                    {publicLocation}
                   </p>
                   <div className="mt-2 flex items-center gap-2 text-xs font-mono tabular-nums text-slate-300">
                     <span className="text-amber-400 font-bold">{candidate.experienceYears}+ años</span> de experiencia

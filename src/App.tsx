@@ -40,7 +40,20 @@ export default function App() {
   const [candidate, setCandidate] = useState<CandidateProfile>(() => {
     try {
       const saved = localStorage.getItem('talentnavy_candidate_profile_v3');
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const savedProfile = JSON.parse(saved) as Partial<CandidateProfile>;
+        const savedEducation = Array.isArray(savedProfile.education) ? savedProfile.education : [];
+        const extraEducation = savedEducation.filter(item =>
+          !DEFAULT_CANDIDATE.education.some(defaultItem => defaultItem.degree === item.degree)
+        );
+        return {
+          ...DEFAULT_CANDIDATE,
+          ...savedProfile,
+          location: DEFAULT_CANDIDATE.location,
+          summary: DEFAULT_CANDIDATE.summary,
+          education: [...DEFAULT_CANDIDATE.education, ...extraEducation]
+        };
+      }
     } catch {
       // fallback
     }
@@ -296,7 +309,7 @@ export default function App() {
                   ¿Por qué Oraida aporta valor inmediato a tu empresa?
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600">
-                  Residencia en Señorío de Illescas (45200) con excelente conexión logística hacia Madrid y Toledo.
+                  Residencia en Illescas, Toledo, con una búsqueda de empleo centrada en un radio de 30 km.
                 </p>
               </div>
 
@@ -354,10 +367,10 @@ export default function App() {
                       <span>Convocatorias con Mayor Afinidad de Perfil</span>
                     </div>
                     <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mt-1">
-                      Muestreo de 3 Ofertas Semilla con Ajuste Superior al 85%
+                      Ofertas destacadas cerca de Illescas
                     </h2>
                     <p className="text-xs text-slate-500 mt-0.5">
-                      Consultadas en el mercado laboral oficial a 3 de noviembre de 2026.
+                      Fuentes revisadas el 5 de noviembre de 2026.
                     </p>
                   </div>
 
@@ -404,7 +417,7 @@ export default function App() {
                     Recibe la candidatura completa de {candidate.name}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
-                    Descarga el informe de competencias, revisa el currículum escaneado y agenda una entrevista telefónica o por videollamada sin compromiso.
+                    Descarga el informe de competencias, revisa el currículum actualizado y agenda una entrevista telefónica o por videollamada sin compromiso.
                   </p>
                 </div>
 
@@ -414,7 +427,7 @@ export default function App() {
                     className="px-4 py-2.5 text-xs font-semibold rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 transition-colors cursor-pointer flex items-center gap-1.5"
                   >
                     <FileText className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Ver CV Escaneado</span>
+                    <span>Ver CV actualizado</span>
                   </button>
                   <button
                     onClick={() => setIsRecruiterModalOpen(true)}
@@ -581,7 +594,7 @@ export default function App() {
             <span aria-hidden="true">·</span>
             <span>Oraida Rodriguez Gonzales</span>
             <span aria-hidden="true">·</span>
-            <span>Señorío de Illescas</span>
+            <span>Illescas, Toledo</span>
           </div>
           <div className="flex items-center gap-3 text-[11px] text-slate-400">
             <button
@@ -589,7 +602,7 @@ export default function App() {
               className="hover:text-amber-600 cursor-pointer flex items-center gap-1"
             >
               <FileText className="w-3 h-3 text-amber-500" />
-              <span>Ver CV Escaneado</span>
+              <span>Ver CV actualizado</span>
             </button>
             <span aria-hidden="true">·</span>
             <button

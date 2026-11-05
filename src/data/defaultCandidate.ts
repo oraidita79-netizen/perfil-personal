@@ -110,7 +110,7 @@ export const DEFAULT_CANDIDATE: CandidateProfile = {
     incorporacionInmediata: true // ¡ACREDITADO! Consta en datos de interés: "Incorporación inmediata"
   },
   notesOnAttributes: {
-    vehiculoPropio: 'Residencia en Señorío de Illescas (45200); confirmar si dispone de vehículo particular para turnos específicos.',
+    vehiculoPropio: 'Residencia en Illescas; confirmar si dispone de vehículo particular para turnos específicos.',
     manejoPDA: 'Acreditado con Carnet Oficial de Picking con Radiofrecuencia (Centro Majem, 2025).',
     excelAvanzado: 'Acreditado con más de 10 años de Responsable de Contabilidad y resolución de irregularidades en facturación.',
     inglesB2: 'Nivel básico escolar; pendiente validar fluidez oral si la oferta es internacional.',
