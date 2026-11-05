@@ -38,8 +38,6 @@ export const OfferDetailModal: React.FC<OfferDetailModalProps> = ({
   isVerifying,
   onSaveApplicationStatus
 }) => {
-  if (!offer) return null;
-
   const [activeModalTab, setActiveModalTab] = useState<'detalle' | 'auditoria' | 'carta'>('detalle');
   const [coverLetterText, setCoverLetterText] = useState<string>('');
   const [isGeneratingLetter, setIsGeneratingLetter] = useState(false);
@@ -47,6 +45,8 @@ export const OfferDetailModal: React.FC<OfferDetailModalProps> = ({
   const [applicationStatus, setApplicationStatus] = useState<string>('Guardada');
   const [candidateNotes, setCandidateNotes] = useState<string>('');
   const [verificationFeedback, setVerificationFeedback] = useState<string | null>(null);
+
+  if (!offer) return null;
 
   const match = computeOfferMatch(offer, candidate);
 
@@ -471,3 +471,4 @@ export const OfferDetailModal: React.FC<OfferDetailModalProps> = ({
     </div>
   );
 };
+

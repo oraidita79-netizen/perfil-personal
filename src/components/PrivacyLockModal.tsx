@@ -16,11 +16,11 @@ export const PrivacyLockModal: React.FC<PrivacyLockModalProps> = ({
   isUnlocked,
   onLock
 }) => {
-  if (!isOpen) return null;
-
   const [pinInput, setPinInput] = useState('');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const DEFAULT_PIN = '2026';
+
+  if (!isOpen) return null;
 
   const handleVerifyPin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -147,3 +147,4 @@ export const PrivacyLockModal: React.FC<PrivacyLockModalProps> = ({
     </div>
   );
 };
+

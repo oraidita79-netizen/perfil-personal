@@ -29,7 +29,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#0B192C] text-white border-b border-slate-800 shadow-md">
+    <header className="site-header sticky top-0 z-40 bg-[#0B192C]/95 text-white border-b border-slate-800 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-6 h-16">
           {/* Zone 1: Single element wordmark in display face */}
@@ -188,3 +188,4 @@ export const Navbar: React.FC<NavbarProps> = ({
     </header>
   );
 };
+

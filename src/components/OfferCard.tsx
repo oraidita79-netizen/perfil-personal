@@ -62,7 +62,7 @@ export const OfferCard: React.FC<OfferCardProps> = ({
   return (
     <div
       onClick={() => onSelectOffer(offer)}
-      className="group relative bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md rounded-xl p-5 transition-all duration-200 cursor-pointer flex flex-col justify-between"
+      className="offer-card group relative bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md rounded-xl p-5 transition-all duration-200 cursor-pointer flex flex-col justify-between"
     >
       {/* Top row: Company, Location, and Match Score Badge */}
       <div>
@@ -218,3 +218,4 @@ export const OfferCard: React.FC<OfferCardProps> = ({
     </div>
   );
 };
+

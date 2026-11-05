@@ -13,8 +13,6 @@ export const EmployerContactModal: React.FC<EmployerContactModalProps> = ({
   onClose,
   candidate
 }) => {
-  if (!isOpen) return null;
-
   const [recruiterName, setRecruiterName] = useState('');
   const [recruiterCompany, setRecruiterCompany] = useState('');
   const [recruiterEmail, setRecruiterEmail] = useState('');
@@ -23,6 +21,8 @@ export const EmployerContactModal: React.FC<EmployerContactModalProps> = ({
     `Hola ${candidate.name}, he revisado tu perfil y el informe de coincidencia de requisitos y me gustaría concertar una breve entrevista para comentar una vacante en nuestra empresa.`
   );
   const [isSent, setIsSent] = useState(false);
+
+  if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -199,3 +199,4 @@ export const EmployerContactModal: React.FC<EmployerContactModalProps> = ({
     </div>
   );
 };
+

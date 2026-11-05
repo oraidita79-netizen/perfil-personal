@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { CandidateProfile, JobOffer } from '../types/index.ts';
 import { computeOfferMatch } from '../utils/matchingEngine.ts';
-import { Background3D } from './Background3D.tsx';
 import {
   ShieldCheck,
   CheckCircle2,
@@ -21,6 +20,8 @@ import {
   Eye,
   EyeOff
 } from 'lucide-react';
+
+const Background3D = lazy(() => import('./Background3D.tsx').then(module => ({ default: module.Background3D })));
 
 interface HeroPortadaProps {
   candidate: CandidateProfile;
@@ -45,18 +46,20 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
   );
 
   // 3D effect subtle controls
-  const [is3dEnabled, setIs3dEnabled] = useState(true);
+  const [is3dEnabled, setIs3dEnabled] = useState(false);
   const [intensity, setIntensity] = useState<'ultra-suave' | 'suave' | 'moderado'>('suave');
 
   return (
-    <section className="relative bg-[#0B192C] text-white overflow-hidden border-b border-slate-800">
+    <section className="hero-shell relative bg-[#0B192C] text-white overflow-hidden border-b border-slate-800">
       
       {/* 3D Ethereal Background Effect (Three.js particles & soft geometric constellation) */}
       {is3dEnabled && (
-        <Background3D
-          intensity={intensity}
-          className="opacity-70 transition-opacity duration-700"
-        />
+        <Suspense fallback={null}>
+          <Background3D
+            intensity={intensity}
+            className="opacity-70 transition-opacity duration-700"
+          />
+        </Suspense>
       )}
 
       {/* Subtle gold gradient ambient glow */}
@@ -108,7 +111,7 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
 
             {/* Employer Value Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
+              <div className="hero-proof p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
                 <div className="text-amber-400 text-xs font-bold flex items-center gap-1.5">
                   <Award className="w-3.5 h-3.5 text-amber-400" />
                   <span>Carnets Oficiales 2025</span>
@@ -118,7 +121,7 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
                 </p>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
+              <div className="hero-proof p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
                 <div className="text-amber-400 text-xs font-bold flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-amber-400" />
                   <span>Incorporación Inmediata</span>
@@ -128,7 +131,7 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
                 </p>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
+              <div className="hero-proof p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
                 <div className="text-amber-400 text-xs font-bold flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5 text-amber-400" />
                   <span>Ofertas al 03/11/2026</span>
@@ -173,7 +176,7 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
 
           {/* Right Column: Executive Candidate Spotlight Card (5 cols) */}
           <div className="lg:col-span-5">
-            <div className="relative bg-slate-900/90 rounded-2xl border border-slate-800 p-5 sm:p-6 shadow-2xl backdrop-blur-sm">
+            <div className="candidate-spotlight relative bg-slate-900/90 rounded-2xl border border-slate-800 p-5 sm:p-6 shadow-2xl backdrop-blur-sm">
               
               {/* Header inside card */}
               <div className="flex items-center justify-between pb-4 border-b border-slate-800">
@@ -312,3 +315,4 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
     </section>
   );
 };
+
