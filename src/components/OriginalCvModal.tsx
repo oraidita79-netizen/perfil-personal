@@ -63,10 +63,10 @@ export const OriginalCvModal: React.FC<OriginalCvModalProps> = ({
 
         {/* Image preview area */}
         <div className="flex-1 overflow-y-auto p-4 bg-slate-100 flex items-center justify-center">
-          <iframe
-            src="/assets/cv_oraida_actualizado.pdf#view=FitH"
-            title={`Currículum Vitae actualizado de ${candidateName}`}
-            className="w-full h-[72vh] rounded-lg shadow-md border border-slate-300 bg-white"
+          <img
+            src="/assets/cv_oraida_actualizado_preview.jpg"
+            alt={`Vista previa del currículum actualizado de ${candidateName}`}
+            className="max-w-full max-h-[72vh] w-auto h-auto rounded-lg shadow-md border border-slate-300 bg-white object-contain"
           />
         </div>
 
