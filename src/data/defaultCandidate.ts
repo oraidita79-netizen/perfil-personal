@@ -3,13 +3,18 @@ import { CandidateProfile } from '../types/index.ts';
 export const DEFAULT_CANDIDATE: CandidateProfile = {
   name: 'Oraida Rodriguez Gonzales',
   title: 'Especialista Polivalente en Logística, Contabilidad y Gestión Administrativa',
-  location: 'Señorío de Illescas (45200), Toledo / Madrid Sur',
+  location: 'Calle Dámaso Alonso, 14, 1.º B, 45200 Illescas, Toledo',
   avatarUrl: '/assets/oraida_photo.jpg',
   email: 'Oraidita.79@gmail.com',
   phone: '614.632.194',
   experienceYears: 20,
-  summary: 'Perfil polivalente con experiencia en gestión de almacén, apoyo en facturación y registros contables y actividades de venta. Con sólida experiencia en gestión administrativa y atención al cliente con habilidades avanzadas en el uso de herramientas informáticas y capacidad para optimizar procesos con un estilo de trabajo responsable comprometido con la mejora y capacidad para responder de forma eficaz en distintos tipos de tareas.',
+  summary: 'Profesional polivalente con más de 20 años de experiencia en logística, contabilidad, administración y atención al cliente. Experiencia en gestión de almacén e inventarios, facturación, registros contables y coordinación de tareas administrativas. Manejo de herramientas informáticas, organización y resolución de incidencias.',
   education: [
+    {
+      degree: 'Curso de Emprendimiento, Inteligencia Artificial, Gestión y Administración',
+      institution: 'Formación complementaria',
+      year: 'Fecha no indicada'
+    },
     {
       degree: 'Curso de Organización y Técnicas para la Venta',
       institution: 'Cámara de Comercio',
@@ -116,5 +121,5 @@ export const DEFAULT_CANDIDATE: CandidateProfile = {
     { language: 'Español', level: 'Nativo' },
     { language: 'Inglés', level: 'Básico / Nociones' }
   ],
-  uploadedCvName: 'CV_Oraida_Rodriguez_Gonzales.jpg'
+  uploadedCvName: 'CV_Oraida_Rodriguez_Gonzales_actualizado.pdf'
 };

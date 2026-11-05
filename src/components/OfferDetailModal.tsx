@@ -103,7 +103,7 @@ export const OfferDetailModal: React.FC<OfferDetailModalProps> = ({
       setVerificationFeedback(data.verifiedNote || 'Convocatoria vigente comprobada con éxito.');
       setTimeout(() => setVerificationFeedback(null), 5000);
     } catch {
-      setVerificationFeedback('Convocatoria vigente registrada en la base de datos (03/11/2026).');
+      setVerificationFeedback(`Convocatoria consultada el ${new Date(offer.lastCheckedDate).toLocaleDateString('es-ES')}.`);
       setTimeout(() => setVerificationFeedback(null), 5000);
     }
   };
@@ -156,7 +156,9 @@ export const OfferDetailModal: React.FC<OfferDetailModalProps> = ({
             <span>{offer.workday}</span>
             <span aria-hidden="true">·</span>
             <span className="font-mono tabular-nums font-semibold text-white">
-              {offer.salaryMin.toLocaleString('es-ES')} € - {offer.salaryMax.toLocaleString('es-ES')} € / {offer.salaryPeriod}
+              {offer.salaryMin > 0 && offer.salaryMax > 0
+                ? `${offer.salaryMin.toLocaleString('es-ES')} € - ${offer.salaryMax.toLocaleString('es-ES')} € / ${offer.salaryPeriod}`
+                : 'Salario no indicado'}
             </span>
           </div>
         </div>
@@ -208,7 +210,7 @@ export const OfferDetailModal: React.FC<OfferDetailModalProps> = ({
           {/* Verification indicator */}
           <div className="hidden sm:flex items-center gap-2 text-[11px] text-slate-500">
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>Consultada 03/11/2026</span>
+            <span>Consultada {new Date(offer.lastCheckedDate).toLocaleDateString('es-ES')}</span>
             <button
               onClick={handleReverify}
               disabled={isVerifying}
@@ -471,4 +473,3 @@ export const OfferDetailModal: React.FC<OfferDetailModalProps> = ({
     </div>
   );
 };
-

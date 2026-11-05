@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { RAW_JSON_STRING, MASTER_PROMPT_TEXT } from '../data/seedOffers.ts';
+import { NEARBY_OFFERS_JSON as RAW_JSON_STRING } from '../data/nearbyOffers.ts';
+import { MASTER_PROMPT_TEXT } from '../data/seedOffers.ts';
 import { Code2, FileText, Copy, Check, Download, Upload, Sparkles, RefreshCw } from 'lucide-react';
 import { JobOffer } from '../types/index.ts';
 
@@ -63,7 +64,7 @@ export const SeedDataPromptView: React.FC<SeedDataPromptViewProps> = ({ onImport
               Datos Semilla & Prompt Maestro
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Archivos maestros integrados para Google AI Studio: las 10 ofertas semilla (JSON consultado a 3 de noviembre de 2026) y el prompt original de especificaciones.
+              Catálogo local de ofertas cerca de Illescas, actualizado el 5 de noviembre de 2026, más el prompt original de especificaciones.
             </p>
           </div>
 
@@ -112,7 +113,7 @@ export const SeedDataPromptView: React.FC<SeedDataPromptViewProps> = ({ onImport
           <div className="bg-[#0B192C] px-6 py-3 border-b border-slate-800 flex items-center justify-between">
             <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
               <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-              <span>OFERTAS-SEMILLA-GOOGLE-AI-STUDIO.json (10 ofertas del 03/11/2026)</span>
+              <span>OFERTAS-CERCA-ILLESCAS.json (5 ofertas consultadas el 05/11/2026)</span>
             </div>
 
             <div className="flex items-center gap-2">

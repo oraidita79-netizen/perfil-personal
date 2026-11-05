@@ -73,7 +73,7 @@ export const PrivacyLockModal: React.FC<PrivacyLockModalProps> = ({
         {/* Content */}
         <div className="p-5 space-y-4">
           <p className="text-xs text-slate-600 leading-relaxed">
-            Tal y como has configurado en tu perfil, la <strong className="text-slate-900">Portada y Perfil Profesional</strong> son públicos para que los empleadores conozcan tu candidatura, mientras que las 10 ofertas detalladas, la matriz técnica interna y los datos JSON quedan bajo <strong className="text-amber-800">acceso privado</strong>.
+            Tal y como has configurado en tu perfil, la <strong className="text-slate-900">Portada y Perfil Profesional</strong> son públicos para que los empleadores conozcan tu candidatura, mientras que las ofertas detalladas, la matriz técnica interna y los datos JSON quedan bajo <strong className="text-amber-800">acceso privado</strong>.
           </p>
 
           {isUnlocked ? (
@@ -83,7 +83,7 @@ export const PrivacyLockModal: React.FC<PrivacyLockModalProps> = ({
                 <span>Actualmente estás en Modo Edición / Acceso Total</span>
               </div>
               <p className="text-[11px] text-emerald-800">
-                Puedes navegar libremente por las 10 ofertas, modificar tus requisitos y actualizar tu CV.
+                Puedes navegar libremente por las ofertas cercanas, modificar tus requisitos y actualizar tu CV.
               </p>
               <button
                 onClick={() => {
@@ -147,4 +147,3 @@ export const PrivacyLockModal: React.FC<PrivacyLockModalProps> = ({
     </div>
   );
 };
-

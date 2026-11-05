@@ -107,7 +107,9 @@ export const OfferCard: React.FC<OfferCardProps> = ({
           <span>{offer.workday}</span>
           <span aria-hidden="true">·</span>
           <span className="font-mono tabular-nums font-semibold text-slate-900">
-            {offer.salaryMin.toLocaleString('es-ES')} € - {offer.salaryMax.toLocaleString('es-ES')} € / {offer.salaryPeriod}
+            {offer.salaryMin > 0 && offer.salaryMax > 0
+              ? `${offer.salaryMin.toLocaleString('es-ES')} € - ${offer.salaryMax.toLocaleString('es-ES')} € / ${offer.salaryPeriod}`
+              : 'Salario no indicado'}
           </span>
         </div>
 
@@ -177,7 +179,7 @@ export const OfferCard: React.FC<OfferCardProps> = ({
         {/* Verification indicator */}
         <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-          <span>Vigente al 03/11/2026</span>
+          <span>Revisada el {new Date(offer.lastCheckedDate).toLocaleDateString('es-ES')}</span>
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -218,4 +220,3 @@ export const OfferCard: React.FC<OfferCardProps> = ({
     </div>
   );
 };
-

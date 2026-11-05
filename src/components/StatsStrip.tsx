@@ -18,6 +18,10 @@ export const StatsStrip: React.FC<StatsStripProps> = ({ offers, candidate, onOpe
   // Count unconfirmed flags
   const totalUnconfirmed = matchResults.reduce((acc, curr) => acc + curr.unconfirmedCount, 0);
   const excellentCount = matchResults.filter(r => r.score >= 80).length;
+  const lastChecked = offers.map(o => o.lastCheckedDate).sort().at(-1);
+  const checkedLabel = lastChecked
+    ? new Date(lastChecked).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })
+    : '—';
 
   return (
     <div className="bg-white border-b border-slate-200">
@@ -31,10 +35,10 @@ export const StatsStrip: React.FC<StatsStripProps> = ({ offers, candidate, onOpe
             </div>
             <div>
               <div className="text-xl font-bold text-slate-900 font-mono tabular-nums leading-none">
-                10
+                {offers.length}
               </div>
               <div className="text-xs text-slate-500 mt-1">
-                Ofertas Semilla Activas
+                Ofertas cercanas
               </div>
             </div>
           </div>
@@ -46,10 +50,10 @@ export const StatsStrip: React.FC<StatsStripProps> = ({ offers, candidate, onOpe
             </div>
             <div>
               <div className="text-sm font-bold text-slate-900 font-mono tabular-nums leading-none">
-                03 Nov 2026
+                {checkedLabel}
               </div>
               <div className="text-xs text-slate-500 mt-1">
-                Fecha de Consulta Semilla
+                Última revisión de las fuentes
               </div>
             </div>
           </div>

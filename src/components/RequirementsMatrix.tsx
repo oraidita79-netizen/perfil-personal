@@ -122,7 +122,7 @@ export const RequirementsMatrix: React.FC<RequirementsMatrixProps> = ({
           <table className="w-full text-left text-xs border-collapse">
             <thead>
               <tr className="bg-[#0B192C] text-white border-b border-slate-800 text-[11px] font-semibold uppercase tracking-wider">
-                <th className="py-3.5 px-4 min-w-[200px]">Oferta de Empleo (3 Nov 2026)</th>
+                <th className="py-3.5 px-4 min-w-[200px]">Ofertas cercanas</th>
                 <th className="py-3.5 px-3 text-center min-w-[80px]">Score Match</th>
                 {flagsConfig.map(f => (
                   <th key={f.key} className="py-3.5 px-3 text-center min-w-[100px]">

@@ -106,7 +106,7 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
 
             {/* Subtitle */}
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl text-pretty">
-              Conoce el perfil profesional de <strong className="text-white">{candidate.name}</strong> (+20 años de experiencia, incluyendo 10 años como Responsable de Contabilidad y formación reciente en Logística con <span className="text-amber-300 font-medium">Carnet de Carretilla y Carnet de Picking con Radiofrecuencia/PDA 2025</span>). Contrastamos su candidatura frente a 10 ofertas activas con total transparencia técnica.
+              Conoce el perfil profesional de <strong className="text-white">{candidate.name}</strong> (+20 años de experiencia, incluyendo 10 años como Responsable de Contabilidad y formación reciente en Logística con <span className="text-amber-300 font-medium">Carnet de Carretilla y Carnet de Picking con Radiofrecuencia/PDA 2025</span>). Contrastamos su candidatura frente a {offers.length} ofertas de Illescas y alrededores.
             </p>
 
             {/* Employer Value Cards */}
@@ -134,10 +134,10 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
               <div className="hero-proof p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
                 <div className="text-amber-400 text-xs font-bold flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Ofertas al 03/11/2026</span>
+                  <span>Ofertas cerca de Illescas</span>
                 </div>
                 <p className="text-[11px] text-slate-400 leading-snug">
-                  Alineada con convocatorias en Madrid, Toledo (Señorío de Illescas), Barcelona y Remoto.
+                  Vacantes presenciales en Illescas, seleccionadas para un radio de búsqueda de 30 km.
                 </p>
               </div>
             </div>
@@ -149,7 +149,7 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
                 className="inline-flex items-center gap-2 px-5 py-3 text-xs sm:text-sm font-bold rounded-xl bg-amber-400 text-slate-950 hover:bg-amber-300 active:scale-95 transition-all shadow-md cursor-pointer whitespace-nowrap"
               >
                 <Briefcase className="w-4 h-4" />
-                <span>Explorar las 10 Ofertas & Ajuste</span>
+                <span>Explorar {offers.length} ofertas & Ajuste</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -167,7 +167,7 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
                   className="inline-flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-semibold rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 transition-colors cursor-pointer whitespace-nowrap"
                 >
                   <FileText className="w-4 h-4 text-amber-400" />
-                  <span>Ver CV Original Escaneado</span>
+                  <span>Ver CV actualizado</span>
                 </button>
               )}
             </div>
@@ -187,7 +187,7 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
                   </span>
                 </div>
                 <span className="text-[11px] font-mono tabular-nums text-amber-400 bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded">
-                  03 Nov 2026
+                  05 Nov 2026
                 </span>
               </div>
 
@@ -247,7 +247,7 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
               <div className="p-3.5 rounded-xl bg-gradient-to-r from-[#1E3E62] to-[#0B192C] border border-amber-400/40 flex items-center justify-between">
                 <div>
                   <div className="text-xs text-slate-300">Índice de Compatibilidad</div>
-                  <div className="text-xs text-amber-400 font-semibold">10 ofertas analizadas</div>
+                  <div className="text-xs text-amber-400 font-semibold">{offers.length} ofertas cercanas analizadas</div>
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold font-mono tabular-nums text-amber-300">
@@ -286,10 +286,10 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
             </div>
             <div>
               <div className="text-xl sm:text-2xl font-bold font-mono tabular-nums text-white">
-                10 Ofertas
+                {offers.length} Ofertas
               </div>
               <div className="text-[11px] text-slate-400 mt-0.5">
-                Auditadas al 03/11/2026
+                Cerca de Illescas · radio 30 km
               </div>
             </div>
             <div>
@@ -315,4 +315,3 @@ export const HeroPortada: React.FC<HeroPortadaProps> = ({
     </section>
   );
 };
-

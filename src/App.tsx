@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { SEED_OFFERS } from './data/seedOffers.ts';
+import { NEARBY_OFFERS as SEED_OFFERS } from './data/nearbyOffers.ts';
 import { DEFAULT_CANDIDATE } from './data/defaultCandidate.ts';
 import { JobOffer, CandidateProfile } from './types/index.ts';
 import { Navbar } from './components/Navbar.tsx';
@@ -142,7 +142,7 @@ export default function App() {
     showToast('✓ Perfil profesional actualizado correctamente.');
   };
 
-  // Re-verify an offer (checks date 03/11/2026)
+  // Re-verify an offer against its source listing.
   const handleVerifyOffer = async (offerId: string) => {
     setVerifyingOfferId(offerId);
     try {
@@ -161,7 +161,7 @@ export default function App() {
       setOffers(prev =>
         prev.map(o => (o.id === offerId ? { ...o, isVerified: true, lastCheckedDate: data.lastCheckedDate } : o))
       );
-      showToast(`Convocatoria verificada: Oferta activa consultada a 03/11/2026.`);
+      showToast(`Convocatoria verificada: consulta actualizada el ${new Date().toLocaleDateString('es-ES')}.`);
     } catch {
       showToast(`Convocatoria vigente registrada en el sistema.`);
     } finally {
@@ -371,7 +371,7 @@ export default function App() {
                     }}
                     className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-lg bg-[#1E3E62] text-white hover:bg-[#0B192C] transition-colors cursor-pointer shrink-0 shadow-xs"
                   >
-                    <span>Ver catálogo completo (10 ofertas)</span>
+                    <span>Ver catálogo completo ({offers.length} ofertas)</span>
                     {!isPrivateUnlocked ? <Lock className="w-3.5 h-3.5 text-amber-400" /> : <ArrowRight className="w-4 h-4" />}
                   </button>
                 </div>

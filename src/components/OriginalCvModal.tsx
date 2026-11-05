@@ -26,23 +26,31 @@ export const OriginalCvModal: React.FC<OriginalCvModalProps> = ({
             </div>
             <div>
               <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
-                Currículum Vitae Original de {candidateName}
+                Currículum Vitae de {candidateName}
               </h3>
               <p className="text-xs text-slate-300">
-                Documento de referencia digitalizado
+                Currículum actualizado
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
             <a
-              href="/assets/cv_oraida_original.jpg"
+              href="/assets/cv_oraida_actualizado.pdf"
               target="_blank"
               rel="noreferrer"
               className="p-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
-              title="Abrir imagen en pestaña completa"
+              title="Abrir el CV actualizado en otra pestaña"
             >
               <ExternalLink className="w-4 h-4" />
+            </a>
+            <a
+              href="/assets/cv_oraida_actualizado.pdf"
+              download
+              className="p-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
+              title="Descargar el CV actualizado"
+            >
+              <Download className="w-4 h-4" />
             </a>
             <button
               onClick={onClose}
@@ -55,10 +63,10 @@ export const OriginalCvModal: React.FC<OriginalCvModalProps> = ({
 
         {/* Image preview area */}
         <div className="flex-1 overflow-y-auto p-4 bg-slate-100 flex items-center justify-center">
-          <img
-            src="/assets/cv_oraida_original.jpg"
-            alt={`Currículum Vitae de ${candidateName}`}
-            className="max-w-full h-auto rounded-lg shadow-md border border-slate-300 object-contain"
+          <iframe
+            src="/assets/cv_oraida_actualizado.pdf#view=FitH"
+            title={`Currículum Vitae actualizado de ${candidateName}`}
+            className="w-full h-[72vh] rounded-lg shadow-md border border-slate-300 bg-white"
           />
         </div>
 
@@ -66,7 +74,7 @@ export const OriginalCvModal: React.FC<OriginalCvModalProps> = ({
         <div className="bg-slate-50 border-t border-slate-200 px-5 py-3 flex items-center justify-between text-xs text-slate-600">
           <div className="flex items-center gap-1.5 text-emerald-700 font-medium">
             <CheckCircle2 className="w-4 h-4" />
-            <span>Datos y foto sincronizados con tu perfil digital</span>
+            <span>Perfil y CV actualizados con los cambios recientes</span>
           </div>
 
           <button

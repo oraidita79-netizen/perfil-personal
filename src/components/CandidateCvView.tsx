@@ -58,7 +58,7 @@ export const CandidateCvView: React.FC<CandidateCvViewProps> = ({
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Compute stats across all 10 offers
+  // Compute stats across the nearby offers
   const matchResults = offers.map(o => computeOfferMatch(o, candidate));
   const avgScore = Math.round(
     matchResults.reduce((acc, curr) => acc + curr.score, 0) / (matchResults.length || 1)
